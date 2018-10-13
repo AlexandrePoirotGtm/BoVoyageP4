@@ -58,7 +58,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                 db.Configuration.ValidateOnSaveEnabled = true;
                 Display("Commercial enregistré");
 
-                return RedirectToAction("index", "TableauDeBord");
+                return RedirectToAction("index", "Commercials");
             }
 
             return View(commercial);
