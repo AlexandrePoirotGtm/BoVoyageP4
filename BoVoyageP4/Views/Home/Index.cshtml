@@ -52,7 +52,7 @@
         foreach (var item in Model.Voyages)
         {
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
+                <div class="thumbnail" style="height:550px">
                     @if (item.Images?.Count() > 0)
                     {
                         @Html.VoyageImage(item.Images.First(), "img-thumbnail")

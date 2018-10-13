@@ -14,6 +14,14 @@
 <body>
     <div class="navbar-default sidebar" role="navigation" style="background-color: #e3f2fd;">
         <div class="container-fluid">
+                           <ul class="nav navbar-nav navbar-right bg-warning">
+                    <li>
+                        <p class="navbar-brand">Bonjour @admin.Prenom @admin.Nom </p>
+                    </li>
+                    <li>
+                        <a id="logout" href="@Url.Action("Logout", "authentification")"><i class="glyphicon glyphicon-log-out"></i></a>
+                    </li>
+                </ul>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -30,14 +38,6 @@
                 @Html.ActionLink("Commerciaux", "Index", "Commercials", new { area = "BackOffice" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Dossiers de reservation", "Index", "DossierReservations", new { area = "BackOffice" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Questions clients", "Index", "FormulaireContacts", new { area = "BackOffice" }, new { @class = "navbar-brand" })
-                <ul class="nav navbar-nav navbar-right bg-warning">
-                    <li>
-                        <p class="navbar-brand">Bonjour @admin.Prenom @admin.Nom </p>
-                    </li>
-                    <li>
-                        <a id="logout" href="@Url.Action("Logout", "authentification")"><i class="glyphicon glyphicon-log-out"></i></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
