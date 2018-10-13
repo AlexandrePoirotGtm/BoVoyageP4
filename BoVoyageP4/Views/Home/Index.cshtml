@@ -52,17 +52,17 @@
         foreach (var item in Model.Voyages)
         {
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail" style="height:550px">
+                <div class="thumbnail" style="height:510px">
                     @if (item.Images?.Count() > 0)
                     {
                         @Html.VoyageImage(item.Images.First(), "img-thumbnail")
                     }
                     <div class="caption">
-                        <h3>Pays:@item.Destination.Pays</h3>
-                        <h3>Region:@item.Destination.Region</h3>
-                        <p>Prix:@item.PrixParPersonne</p>
-                        <p>Date Aller:@item.DateAller.ToString("ddd dd MMM yyyy ")</p>
-                        <p>Date Retour:@item.DateRetour.ToString("ddd dd MMM yyyy ")</p>
+                        <h3 align="center">Pays:@item.Destination.Pays</h3>
+                        <h3 align="center">Region:@item.Destination.Region</h3>
+                        <p align="center">Prix:@item.PrixParPersonne</p>
+                        <p align="center">Date Aller:@item.DateAller.ToString("ddd dd MMM yyyy ")</p>
+                        <p align="center">Date Retour:@item.DateRetour.ToString("ddd dd MMM yyyy ")</p>
                         <ul class="nav nav-fill">
                             <li>@Html.ActionLink("Reservez vite!", "Reservation/" + @item.ID, "Reservation", new { area = "" }, new { @class = "btn btn-primary btn-lg" })</li>
                             <li><a href="@Url.RouteUrl("DetailsVoyage", new { id=item.ID, pays = item.Destination.Pays })" class="btn btn-primary btn-lg" role="button">Voir les détails</a></li>
