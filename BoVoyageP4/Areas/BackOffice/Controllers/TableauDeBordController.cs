@@ -17,7 +17,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
         // GET: BackOffice/TableauDeBord
         public ActionResult Index()
         {
-            var voyages = db.Voyages.Include("Destination").Where(x=>x.DateAller < DbFunctions.AddDays(DateTime.Now, 15)).ToList();
+            var voyages = db.Voyages.Include("Destination").Where(x=>x.DateAller < DbFunctions.AddDays(DateTime.Now, 15)).Where(x => x.DateAller > DateTime.Now).ToList();
             var dossiers = db.DossierReservations.Include("Client").Where(x=>x.EtatDossierReservation == 0).ToList();
             TableauDeBord dashboard = new TableauDeBord()
             {
