@@ -12,11 +12,13 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Source+Sans+Pro" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="navbar navbar-light" style="background-color: #e3f2fd;">
-                @Html.ActionLink("BoVoyage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("BoVoyage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand fas fa-plane-departure", style = "font-family: 'Gloria Hallelujah', cursive" })
         <div class="container">
             <div class="navbar-header">
 
