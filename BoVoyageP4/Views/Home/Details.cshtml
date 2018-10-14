@@ -5,9 +5,19 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Details du voyage</h2>
 
 <div class="jumbotron">
+    <div class="col-sm">
+        <div class="row">
+            @foreach (var picture in Model.Images)
+            {
+                <div class="col-xs-6 col-md-3">
+                    @Html.VoyageImage(picture)
+                </div>
+            }
+        </div>
+    </div>
     <h1 align="center">@Model.AgenceVoyage</h1>
     <h1 align="center">Continent: @Model.Destination.Continent</h1>
     <h1 align="center">Pays: @Model.Destination.Pays</h1>
@@ -15,19 +25,9 @@
     <p align="center">PRIX: @Model.PrixParPersonne €</p>
     <p align="center">DATE DE DEPART: @Model.DateAller</p>
     <p align="center">DATE DE RETOUR: @Model.DateRetour</palign="center">
-    <p align="center">@Html.Raw(Model.Destination.Description)</palign="center">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    @foreach (var picture in Model.Images)
-                    {
-                        <div class="col-xs-6 col-md-3 thumbnail">
-                            @Html.VoyageImage(picture)
-                        </div>
-                    }
-                </div>
-            </div>
-        </div>
+    <p align="center">
+        @Html.Raw(Model.Destination.Description)</palign="center">
+
         @Html.ActionLink("Reserver", "Reservation/" + @Model.ID, "Reservation", new { area = "" }, new { @class = "btn btn-primary btn-lg" })
     <p>@Html.ActionLink("Retour à la liste", "Index")</p>
 </div>
