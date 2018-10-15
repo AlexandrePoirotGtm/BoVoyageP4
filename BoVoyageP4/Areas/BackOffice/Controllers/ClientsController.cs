@@ -121,7 +121,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
             return View(client);
         }
 
-        [Authentication]
+        [Authentication(Type = "CLIENT")]
         public ActionResult EspacePersonnel(int? id)
         {
             if (id == null)
