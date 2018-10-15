@@ -1,9 +1,10 @@
 ﻿using BoVoyageP4.Models;
 using System;
-using System.Linq;
-using System.Web.Mvc;
-using System.Net;
 using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web.Mvc;
+
 namespace BoVoyageP4.Controllers
 {
     public class HomeController : BaseController
@@ -12,7 +13,9 @@ namespace BoVoyageP4.Controllers
         {
             ViewData["Title"] = "Accueil";
             HomeIndexViewModel model = new HomeIndexViewModel();
-            model.Voyages = db.Voyages.Include(v => v.Destination).Include(v => v.Images);
+            model.Voyages = db.Voyages.Include(v => v.Destination).Include(v => v.Images)
+                .Where(d => d.DateAller >= DateTime.Today)
+                .Where(p => p.PlacesDisponibles > 0);
             return View(model);
         }
 
@@ -32,33 +35,35 @@ namespace BoVoyageP4.Controllers
             switch (ChampsTri)
             {
                 case "REGION":
-                    model.Voyages=db.Voyages.Include(v => v.Destination).OrderBy(x => x.Destination.Region).Include(v => v.Images).ToList();
+                    model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.Destination.Region).Include(v => v.Images).ToList();
                     break;
+
                 case "DATEDEPART":
-                    model.Voyages=db.Voyages.Include(v => v.Destination).OrderBy(x => x.DateAller).Include(v => v.Images).ToList();
+                    model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.DateAller).Include(v => v.Images).ToList();
                     break;
+
                 case "DATERETOUR":
-                    model.Voyages=db.Voyages.Include(v => v.Destination).OrderBy(x => x.DateRetour).Include(v => v.Images).ToList();
+                    model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.DateRetour).Include(v => v.Images).ToList();
                     break;
+
                 case "PLACESDISPONIBLES":
-                    model.Voyages=db.Voyages.Include(v => v.Destination).OrderBy(x => x.PlacesDisponibles).Include(v => v.Images).ToList();
+                    model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.PlacesDisponibles).Include(v => v.Images).ToList();
                     break;
+
                 case "PRIX":
                     model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.PrixParPersonne).Include(v => v.Images).ToList();
                     break;
+
                 default:
                     model.Voyages = db.Voyages.Include(v => v.Destination).OrderBy(x => x.Destination.Region).Include(v => v.Images).ToList();
                     break;
             }
             return View("Index", model);
-
         }
-
 
         // GET: Voyages/Details/5
         public ActionResult Details(int? id)
         {
-
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -85,7 +90,5 @@ namespace BoVoyageP4.Controllers
             };
             return View(modelInfo);
         }
-
-       
     }
 }
