@@ -30,6 +30,8 @@ namespace BoVoyageP4.Models
 
         [Required]
         [Display(Name = "Date de Naissance")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date)]
         public DateTime DateNaissance { get; set; }
 
         [NotMapped]
