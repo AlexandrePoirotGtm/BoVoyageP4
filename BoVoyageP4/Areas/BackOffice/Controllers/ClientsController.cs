@@ -121,6 +121,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
             return View(client);
         }
 
+        [Authentication]
         public ActionResult EspacePersonnel(int? id)
         {
             if (id == null)
@@ -134,7 +135,8 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
             }
-            Client client = db.Clients.Include(x => x.DossierReservation.Select(v => v.Voyage.Destination)).SingleOrDefault(x => x.ID == id);
+            Client client = db.Clients.Include(x => x.DossierReservation
+            .Select(v => v.Voyage.Destination)).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
