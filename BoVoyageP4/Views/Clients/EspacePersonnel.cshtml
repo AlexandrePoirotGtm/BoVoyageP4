@@ -67,14 +67,15 @@
     <div>
         @if (Model.DossierReservation != null)
         {
-                <dd>Reservation</dd>
+            <h4>Reservation</h4>
             foreach (var dossier in Model.DossierReservation)
             {
                 <div class="breadcrumb">
                     <p>@dossier.Voyage.Destination.Description</p>
                     <p class="alert-info">Etat : @dossier.EtatDossierReservation</p>
+                    <p>@dossier.PrixTotal €</p>
                 </div>
-                
+
             }
         }
     </div>

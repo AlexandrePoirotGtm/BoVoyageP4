@@ -23,7 +23,6 @@
     public enum Civilite
     {
         Monsieur,
-        Madame,
-        NonBinaire
+        Madame
     }
 }

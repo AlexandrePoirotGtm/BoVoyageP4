@@ -134,12 +134,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
             }
-            Client client = db.Clients.SingleOrDefault(x => x.ID == id);
-            client.DossierReservation = db.DossierReservations.Include(x => x.Voyage).ToList();
-            foreach (var dossier in client.DossierReservation)
-            {
-                dossier.Voyage = db.Voyages.Include(x => x.Destination).SingleOrDefault(x => x.ID == dossier.IDVoyage);
-            }
+            Client client = db.Clients.Include(x => x.DossierReservation.Select(v => v.Voyage.Destination)).SingleOrDefault(x => x.ID == id);
             if (client == null)
             {
                 return HttpNotFound();
