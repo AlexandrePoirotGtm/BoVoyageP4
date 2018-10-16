@@ -233,6 +233,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\bateau.jpg" />
+    <Content Include="Content\images\Cloud.jpg" />
     <Content Include="Content\images\home_slider.jpg" />
     <Content Include="Content\jquery.datetimepicker.css" />
     <Content Include="favicon.ico" />
