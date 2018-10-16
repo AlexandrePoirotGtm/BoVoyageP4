@@ -17,6 +17,7 @@ namespace BoVoyageP4.Models
             , ErrorMessage = "Le format n'est pas bon.")]
         [Index(IsUnique = true)]
         [Email]
+        [Required]
         public string Email { get; set; }
 
         [Display(Name = "Mot de passe")]

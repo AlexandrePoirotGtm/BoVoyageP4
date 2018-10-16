@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201810101503481_ChangementCivilite.Designer.cs">
       <DependentUpon>201810101503481_ChangementCivilite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810160822397_emailClientObligatoire.cs" />
+    <Compile Include="Migrations\201810160822397_emailClientObligatoire.Designer.cs">
+      <DependentUpon>201810160822397_emailClientObligatoire.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AuthentificationViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -538,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201810101503481_ChangementCivilite.resx">
       <DependentUpon>201810101503481_ChangementCivilite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810160822397_emailClientObligatoire.resx">
+      <DependentUpon>201810160822397_emailClientObligatoire.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

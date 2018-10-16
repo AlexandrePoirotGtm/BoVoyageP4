@@ -15,9 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Source+Sans+Pro" rel="stylesheet">
 </head>
 
-<body>
-    <div class="background_image img-responsive" style="background-image:url(./Content/images/home_slider.jpg)">
-        <div class="navbar navbar-light" style="background-color: #000000;">
+<body style="padding-top:0px;">
+        <div class="navbar navbar-light" style="background-color: #000000">
             @Html.ActionLink("BoVoyage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand fas fa-plane-departure", style = "font-family: 'Gloria Hallelujah', cursive" })
             <div class="container">
                 <div class="navbar-header">
@@ -82,7 +81,6 @@
                 <p>&copy; @DateTime.Now.Year - BoVoyage</p>
             </footer>
         </div>
-    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

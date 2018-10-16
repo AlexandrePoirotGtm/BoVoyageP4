@@ -37,20 +37,25 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
             {
                 case "AGENCE":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.AgenceVoyage.Nom).ToList());
+
                 case "REGION":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.Destination.Region).ToList());
+
                 case "DATEDEPART":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.DateAller).ToList());
+
                 case "DATERETOUR":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.DateRetour).ToList());
+
                 case "PLACESDISPONIBLES":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.PlacesDisponibles).ToList());
+
                 case "PRIX":
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.PrixParPersonne).ToList());
+
                 default:
                     return View("Index", db.Voyages.Include(v => v.AgenceVoyage).Include(v => v.Destination).OrderBy(x => x.Destination.Region).ToList());
             }
-
         }
 
         // GET: BackOffice/Voyages/Details/5
@@ -83,7 +88,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,PrixParPersonne,IDDestination,IDAgenceVoyage")] Voyage voyage)
         {
-            if ((voyage.DateRetour <= voyage.DateAller) || (voyage.DateAller< DateTime.Now))
+            if ((voyage.DateRetour <= voyage.DateAller) || (voyage.DateAller < DateTime.Now))
             {
                 Display("Attention verifiez vos dates!", MessageType.ERROR);
             }
@@ -128,7 +133,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,DateAller,DateRetour,PlacesDisponibles,PrixParPersonne,IDDestination,IDAgenceVoyage,Images")] Voyage voyage)
         {
-            db.Voyages.Include("Images"); ;
+            db.Voyages.Include("Images");
 
             if ((voyage.DateRetour <= voyage.DateAller) || (voyage.DateAller < DateTime.Now))
             {
@@ -144,7 +149,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            
+
             ViewBag.IDAgenceVoyage = new SelectList(db.AgencesVoyages, "ID", "Nom", voyage.IDAgenceVoyage);
             ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Continent", voyage.IDDestination);
             return View(voyage);

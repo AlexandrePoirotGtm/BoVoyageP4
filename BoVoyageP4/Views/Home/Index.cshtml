@@ -27,7 +27,6 @@
                                 </form>
                             </ul>
                         </li>
-                        
                     </ul>
                 </div>
                 <div class="sort_box ml-auto"><i class="fa fa-th" aria-hidden="true"></i></div>
@@ -43,7 +42,6 @@
             </ul>
         </form>
     </div>
-   
 </div>
 <div class="row">
 
@@ -52,7 +50,7 @@
         foreach (var item in Model.Voyages)
         {
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail" style="height:510px">
+                <div class="thumbnail" style="height:550px">
                     @if (item.Images?.Count() > 0)
                     {
                         @Html.VoyageImage(item.Images.First(), "img-thumbnail")
@@ -68,9 +66,8 @@
                             <li>@Html.ActionLink("Reservez vite!", "Reservation/" + @item.ID, "Reservation", new { area = "" }, new { @class = "btn btn-primary btn-lg" })</li>
                             <li><a href="@Url.RouteUrl("DetailsVoyage", new { id=item.ID, pays = item.Destination.Pays })" class="btn btn-primary btn-lg" role="button">Voir les détails</a></li>
                         </ul>
-
                     </div>
-                    </div>
+                </div>
             </div>
         }
     }
