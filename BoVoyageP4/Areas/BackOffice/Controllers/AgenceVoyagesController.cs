@@ -109,7 +109,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             AgenceVoyage agenceVoyage = db.AgencesVoyages.Include(x => x.Voyages).SingleOrDefault(x => x.ID == id);
-            if (agenceVoyage.Voyages != null)
+            if (agenceVoyage.Voyages != null && agenceVoyage.Voyages.Count == 0)
             {
                 db.AgencesVoyages.Remove(agenceVoyage);
                 db.SaveChanges();
@@ -118,7 +118,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
             }
             else
             {
-                Display("Impossible de supprimer", Outils.MessageType.ERROR);
+                Display("Impossible de supprimer, l'agence à encore des voyages", Outils.MessageType.ERROR);
                 return View(agenceVoyage);
             }
         }

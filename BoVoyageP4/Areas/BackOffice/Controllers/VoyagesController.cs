@@ -77,7 +77,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
         public ActionResult Create()
         {
             ViewBag.IDAgenceVoyage = new SelectList(db.AgencesVoyages, "ID", "Nom");
-            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Continent");
+            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Region");
             return View();
         }
 
@@ -103,7 +103,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                 }
             }
             ViewBag.IDAgenceVoyage = new SelectList(db.AgencesVoyages, "ID", "Nom", voyage.IDAgenceVoyage);
-            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Continent", voyage.IDDestination);
+            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Region", voyage.IDDestination);
             return View(voyage);
         }
 
@@ -122,7 +122,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
                 return HttpNotFound();
             }
             ViewBag.IDAgenceVoyage = new SelectList(db.AgencesVoyages, "ID", "Nom", voyage.IDAgenceVoyage);
-            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Continent", voyage.IDDestination);
+            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Region", voyage.IDDestination);
             return View(voyage);
         }
 
@@ -151,7 +151,7 @@ namespace BoVoyageP4.Areas.BackOffice.Controllers
             }
 
             ViewBag.IDAgenceVoyage = new SelectList(db.AgencesVoyages, "ID", "Nom", voyage.IDAgenceVoyage);
-            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Continent", voyage.IDDestination);
+            ViewBag.IDDestination = new SelectList(db.Destinations, "ID", "Region", voyage.IDDestination);
             return View(voyage);
         }
 
