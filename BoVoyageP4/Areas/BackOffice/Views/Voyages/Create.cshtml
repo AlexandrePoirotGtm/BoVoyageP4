@@ -1,6 +1,5 @@
 ﻿@model BoVoyageP4.Models.Voyage
 
-
 @{
     ViewBag.Title = "Creer un voyage";
 }
@@ -62,8 +61,6 @@
             </div>
         </div>
 
-
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Enregistrer" class="btn btn-default" />
@@ -72,23 +69,20 @@
     </div>
 }
 
-
-
-
 <div>
     @Html.ActionLink("Retour à la liste", "Index")
 </div>
 
 @section Scripts{
- 
+
     <script src="~/Scripts/jquery.datetimepicker.js"></script>
-    
+
     <script>
         $(function () {
-        
             $('#DateAller').datetimepicker({
                 lang: 'fr',
 
+                attr: "autocomplete off",
                 format: 'd/m/y'
             });
 
